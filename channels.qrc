@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/channels">
+        <file alias="Channels.qml">singleton/Channels.qml</file>
+        <file alias="qmldir">singleton/qmldir</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,62 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>views/icons/ChannelIcon.qml</file>
+        <file>views/icons/CheckIcon.qml</file>
+        <file>views/icons/DeleteIcon.qml</file>
+        <file>views/icons/EditIcon.qml</file>
+        <file>views/icons/IndicatorIcon.qml</file>
+        <file>views/icons/MoveIcon.qml</file>
+        <file>views/icons/PlayIcon.qml</file>
+        <file>views/icons/RecordIcon.qml</file>
+        <file>views/icons/SearchIcon.qml</file>
+        <file>views/icons/TimerIcon.qml</file>
+        <file>views/labels/LabelDescription.qml</file>
+        <file>views/labels/LabelSubtitle.qml</file>
+        <file>views/labels/LabelTitle.qml</file>
+        <file>views/subviews/VDRListView.qml</file>
+        <file>views/subviews/StartTimesListView.qml</file>
+        <file>views/subviews/RecordDetailsView.qml</file>
+        <file>views/subviews/ChannelEditView.qml</file>
+        <file>views/subviews/HostEditView.qml</file>
+        <file>views/subviews/TimerEditView.qml</file>
+        <file>views/subviews/BlacklistEditView.qml</file>
+        <file>views/subviews/ChannelGroupsEditView.qml</file>
+        <file>views/subviews/MoveRecordView.qml</file>
+        <file>views/subviews/EventDetailsView.qml</file>
+        <file>views/subviews/ContentDescriptorsView.qml</file>
+        <file>views/subviews/SearchTimerEditView.qml</file>
+        <file>views/subviews/SearchView.qml</file>
+        <file>views/subviews/SearchViewCommon.qml</file>
+        <file>views/subviews/ExtEpgCatsCompareView.qml</file>
+        <file>views/subviews/ExtEpgCatsView.qml</file>
+        <file>views/subviews/ExtEpgCatsViewSelect.qml</file>
+        <file>views/TestPage.qml</file>
+        <file>views/+test1/TestPage.qml</file>
+        <file>views/+material/TestPage.qml</file>
+        <file>LogView.qml</file>
+        <file>views/subviews/RecordDirectoryComponent.qml</file>
+        <file>views/subviews/RecordFileComponent.qml</file>
+        <file>views/icons/ExclamationLabel.qml</file>
+        <file>views/transitions/ListViewRemoveDisplaced.qml</file>
+        <file>views/transitions/ListViewPopulate.qml</file>
+        <file>views/transitions/ListViewSectionAnimation.qml</file>
+        <file>views/transitions/ListViewDisplaced.qml</file>
+        <file>views/subviews/ChannelHelpPopup.qml</file>
+    </qresource>
+    <qresource prefix="/views">
+        <file alias="HomeForm.qml">views/HomeForm.qml</file>
+        <file alias="ChannelListPage.qml">views/ChannelListPage.qml</file>
+        <file alias="SettingsPage.qml">views/SettingsPage.qml</file>
+        <file alias="TimerListPage.qml">views/TimerListPage.qml</file>
+        <file alias="EventListPage.qml">views/EventListPage.qml</file>
+        <file alias="SearchtimerListPage.qml">views/SearchtimerListPage.qml</file>
+        <file alias="BlacklistPage.qml">views/BlacklistPage.qml</file>
+        <file alias="ChannelGroupsPage.qml">views/ChannelGroupsPage.qml</file>
+        <file alias="EpgSearchQueryPage.qml">views/EpgSearchQueryPage.qml</file>
+        <file alias="RecordListPage.qml">views/RecordListPage.qml</file>
+        <file alias="RemoteControlPage.qml">views/RemoteControlPage.qml</file>
+        <file alias="RecordDeletePage.qml">views/RecordDeletePage.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,14 @@
+module controls
+ComboBoxAuto 1.0 ComboBoxAuto.qml
+SpinBox 1.0 SpinBox.qml
+ContextMenuItem 1.0 ContextMenuItem.qml
+TextIndicator 1.0 TextIndicator.qml
+Kalender 1.0 Kalender.qml
+BusyIndicatorPopup 1.0 BusyIndicatorPopup.qml
+CommandBar 1.0 CommandBar.qml
+CommandButton 1.0 CommandButton.qml
+CommandHButton 1.0 CommandHButton.qml
+ToolButtonHeader 1.0 ToolButtonHeader.qml
+LineInput 1.0 LineInput.qml
+EmptyListLabel 1.0 EmptyListLabel.qml
+TimeSpinBox 1.0 TimeSpinBox.qml

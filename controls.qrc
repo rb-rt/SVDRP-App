@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/controls">
+        <file alias="qmldir">controls/qmldir</file>
+        <file alias="ContextMenuItem.qml">controls/ContextMenuItem.qml</file>
+        <file alias="TextIndicator.qml">controls/TextIndicator.qml</file>
+        <file alias="Kalender.qml">controls/Kalender.qml</file>
+        <file alias="BusyIndicatorPopup.qml">controls/BusyIndicatorPopup.qml</file>
+        <file alias="CommandButton.qml">controls/CommandButton.qml</file>
+        <file alias="CommandBar.qml">controls/CommandBar.qml</file>
+        <file alias="CommandHButton.qml">controls/CommandHButton.qml</file>
+        <file alias="ToolButtonHeader.qml">controls/ToolButtonHeader.qml</file>
+        <file alias="LineInput.qml">controls/LineInput.qml</file>
+        <file alias="EmptyListLabel.qml">controls/EmptyListLabel.qml</file>
+        <file alias="ComboBoxAuto.qml">controls/ComboBoxAuto.qml</file>
+        <file alias="SpinBox.qml">controls/SpinBox.qml</file>
+        <file alias="TimeSpinBox.qml">controls/TimeSpinBox.qml</file>
+    </qresource>
+</RCC>

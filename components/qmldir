@@ -1,0 +1,17 @@
+module components
+
+UseChannelBox 1.0 UseChannelBox.qml
+
+TimerWeekdays 1.0 TimerWeekdays.qml
+UseClock 1.0 UseClock.qml
+UseDuration 1.0 UseDuration.qml
+UseSearchTimerUserDefined 1.0 UseSearchTimerUserDefined.qml
+UseWeekday 1.0 UseWeekday.qml
+
+ComponentsListView 1.0 ComponentsListView.qml
+
+ChannelsDrawer 1.0 ChannelsDrawer.qml
+ChannelTypeDrawer 1.0 ChannelTypeDrawer.qml
+ChannelComboBox 1.0 ChannelComboBox.qml
+
+RemoteButton 1.0 RemoteButton.qml

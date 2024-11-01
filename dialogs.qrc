@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/dialogs">
+        <file alias="qmldir">dialogs/qmldir</file>
+        <file alias="TimeTumblerDlg.qml">dialogs/TimeTumblerDlg.qml</file>
+        <file alias="DateTimeTumblerDlg.qml">dialogs/DateTimeTumblerDlg.qml</file>
+        <file alias="ErrorDialog.qml">dialogs/ErrorDialog.qml</file>
+        <file alias="MyMessageDialog.qml">dialogs/MyMessageDialog.qml</file>
+        <file alias="CalendarDlg.qml">dialogs/CalendarDlg.qml</file>
+        <file alias="DateTumblerDlg.qml">dialogs/DateTumblerDlg.qml</file>
+        <file alias="DialogInputText.qml">dialogs/DialogInputText.qml</file>
+        <file alias="TestGridView.qml">dialogs/TestGridView.qml</file>
+        <file alias="ColorChooserView.qml">dialogs/ColorChooserView.qml</file>
+        <file alias="PlayRecordDlg.qml">dialogs/PlayRecordDlg.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>dialogs/subs/DialogCloseIcon.qml</file>
+        <file>dialogs/subs/DialogFooter.qml</file>
+        <file>dialogs/subs/DialogHeaderToolBar.qml</file>
+        <file>dialogs/subs/DialogFooterToolBar.qml</file>
+        <file>dialogs/subs/HueSlider.qml</file>
+        <file>dialogs/subs/TimeTumbler.qml</file>
+        <file>dialogs/subs/DateTimeTumbler.qml</file>
+        <file>dialogs/subs/DateTumbler.qml</file>
+        <file>dialogs/subs/DayTumbler.qml</file>
+        <file>dialogs/subs/HourTumbler.qml</file>
+        <file>dialogs/subs/MinuteTumbler.qml</file>
+        <file>dialogs/subs/MonthTumbler.qml</file>
+        <file>dialogs/subs/YearTumbler.qml</file>
+        <file>dialogs/subs/ColorField.qml</file>
+        <file>dialogs/subs/ColorChooser.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/components">
+        <file alias="qmldir">components/qmldir</file>
+        <file alias="UseChannelBox.qml">components/UseChannelBox.qml</file>
+        <file alias="UseClock.qml">components/UseClock.qml</file>
+        <file alias="UseDuration.qml">components/UseDuration.qml</file>
+        <file alias="UseWeekday.qml">components/UseWeekday.qml</file>
+        <file alias="UseSearchTimerUserDefined.qml">components/UseSearchTimerUserDefined.qml</file>
+        <file alias="TimerWeekdays.qml">components/TimerWeekdays.qml</file>
+        <file alias="ContentDescriptorsView.qml">components/ContentDescriptorsView.qml</file>
+        <file alias="ComponentsListView.qml">components/ComponentsListView.qml</file>
+        <file alias="ChannelsDrawer.qml">components/ChannelsDrawer.qml</file>
+        <file alias="RemoteButton.qml">components/RemoteButton.qml</file>
+        <file alias="ChannelTypeDrawer.qml">components/ChannelTypeDrawer.qml</file>
+        <file alias="ChannelComboBox.qml">components/ChannelComboBox.qml</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

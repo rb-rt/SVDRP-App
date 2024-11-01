@@ -1,0 +1,12 @@
+module dialogs
+
+TimeTumblerDlg 1.0 TimeTumblerDlg.qml
+DateTimeTumblerDlg 1.0 DateTimeTumblerDlg.qml
+DateTumblerDlg 1.0 DateTumblerDlg.qml
+CalendarDlg 1.0 CalendarDlg.qml
+ErrorDialog 1.0 ErrorDialog.qml
+MyMessageDialog 1.0 MyMessageDialog.qml
+DialogInputText 1.0 DialogInputText.qml
+TestGridView 1.0 TestGridView.qml
+ColorChooserView 1.0 ColorChooserView.qml
+PlayRecordDlg 1.0 PlayRecordDlg.qml

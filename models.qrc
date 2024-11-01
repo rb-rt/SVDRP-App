@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/models">
+        <file alias="ContentDescriptorModel.qml">models/ContentDescriptorModel.qml</file>
+        <file alias="qmldir">models/qmldir</file>
+        <file alias="StreamModel.qml">models/StreamModel.qml</file>
+        <file alias="MonthModel.qml">models/MonthModel.qml</file>
+        <file alias="LogModel.qml">models/LogModel.qml</file>
+    </qresource>
+</RCC>

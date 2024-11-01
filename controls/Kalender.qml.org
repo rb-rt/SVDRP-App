@@ -1,0 +1,194 @@
+import QtQuick 2.15
+import QtQuick.Controls
+import QtQuick.Layouts 1.15
+import assets 1.0
+import controls 1.0 as MyControls
+
+
+ColumnLayout {
+    id: root
+
+//    x: 10
+//    y: 10
+
+    //        width: 200
+
+    //        anchors.centerIn: parent
+
+    property date selectedDate: new Date()
+
+    //Startdatum
+    property int day: selectedDate.getDate()
+
+    onSelectedDateChanged: {
+//        console.log("Kalender onSelectedDateChanged",selectedDate)
+//        console.log("Kalender onSelectedDateChanged fullYear",selectedDate.getFullYear())
+        yearBox.from = selectedDate.getFullYear() - 1
+        yearBox.to = selectedDate.getFullYear() + 1
+    }
+
+    //    width: Math.min(parent.width,parent.height)
+    //    height: Math.min(parent.height, parent.width)
+    //    width: parent.width > height ? height : height
+
+//    implicitHeight: childrenRect.height
+//    height: childrenRect.height
+
+//    spacing: 12
+
+    //        implicitWidth: monthGrid.implicitWidth
+
+    //        onWidthChanged: console.log ("Kalender ColumnLayout onWidthChanged",width)
+    //        onImplicitWidthChanged: console.log("Kalender ColumnLayout onImplicitWidthChanged",implicitWidth)
+//    onHeightChanged: console.log ("Kalender ColumnLayout onHeightChanged",height, implicitHeight,childrenRect.height)
+
+
+    //Ohne Rectangle: Binding loop detected for property "implicitHeight" (!?)
+        Rectangle {
+//            color: "green"
+            Layout.fillWidth: true
+//            height: 3
+        }
+
+    RowLayout {
+        width: parent.width
+
+        MyControls.SpinBox {
+            id: monthBox
+            Layout.fillWidth: true
+            font: monthGrid.font
+            from: 0
+            to: 11
+            value: selectedDate.getMonth()
+            contentItem: Label {
+                text: monthGrid.locale.monthName(monthBox.value,Locale.ShortFormat)
+                horizontalAlignment: Qt.AlignHCenter
+            }
+        }
+        MyControls.SpinBox {
+            id: yearBox
+            Layout.fillWidth: true
+            font: monthGrid.font
+            value: selectedDate.getFullYear()
+            onValueChanged: {
+//                console.log("Kalender SpinBox Year onValueChanged",value,selectedDate)
+                from = value -1
+                to = value + 1
+            }
+            contentItem: Label {
+                text: yearBox.value
+                horizontalAlignment: Qt.AlignHCenter
+                font: monthGrid.font
+            }
+        }
+    }
+
+    DayOfWeekRow {
+        id: dayOfWeek
+        locale: monthGrid.locale
+
+        font: monthGrid.font
+        Layout.fillWidth: true
+        delegate: Label {
+            text: model.shortName
+        }
+    }
+
+
+    MonthGrid {
+        id: monthGrid
+        month: monthBox.value
+        year: yearBox.value
+
+        locale: Qt.locale("de_DE")
+        //                locale: Qt.locale("en_EN")
+
+        Layout.fillWidth: true
+        //            Layout.fillHeight: true
+
+        //            onWidthChanged: console.log ("Kalender MonthGrid onWidthChanged",width)
+        //            onImplicitWidthChanged: console.log("Kalender MonthGrid onImplicitWidthChanged",implicitWidth)
+        //            onAvailableWidthChanged: console.log("Kalender MonthGrid onAvailableWidthChanged",availableWidth,contentWidth)
+        //            onHeightChanged: console.log ("Kalender MonthGrid onHeightChanged",height)
+
+        spacing: 0
+        font.pointSize: Style.pointSizeLarge
+
+        onMonthChanged: {
+//            console.log("onMonthChanged",month, selectedDate.getMonth())
+            if (month !== selectedDate.getMonth()) selectedDate = new Date(year, month, root.day)
+        }
+        onYearChanged: if (year !== selectedDate.getFullYear()) selectedDate = new Date(year, month, root.day)
+
+        delegate: Label {
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            text: model.day
+            font: monthGrid.font
+            padding: Style.pointSizeStandard / 2
+
+            color: model.month === monthGrid.month ? Style.colorForeground : Qt.darker(Style.colorForeground)
+
+            property bool selected: (model.month === monthGrid.month) &&  (model.day === root.day)
+
+            background: Rectangle {
+                id: background
+                anchors.fill: parent
+                border.width: 1
+                border.color: Style.colorPrimary
+                gradient: Style.gradientList
+                states: [
+                    State {
+                        name: "hover"
+                        PropertyChanges {
+                            target: background
+                            gradient: Style.gradientListHover
+                        }
+                    },
+                    State {
+                        when: selected
+                        name: "selected"
+                        PropertyChanges {
+                            target: background
+                            gradient: Style.gradientTageswechsel
+                        }
+                    }
+                ]
+            }
+
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: background.state = "hover"
+                onExited: selected ? background.state = "selected" : background.state = ""
+
+                onClicked: {
+//                    console.log("MonthGrid MouseArea clicked",date)
+                    monthGrid.clicked(date)
+                }
+            }
+        }
+
+        onClicked: {
+           console.log("MonthGrid clicked vorher",date,selectedDate)
+            selectedDate = date
+        }
+    }
+
+    Button {
+        text: "Heute"
+//        Layout.topMargin: 20
+        Layout.alignment: Qt.AlignHCenter
+
+        //        anchors {
+        //            left: parent.left
+        //            leftMargin: 20
+        //            right: parent.right
+        //            rightMargin: 20
+        //        }
+        font: monthGrid.font
+        onClicked: selectedDate = new Date()
+    }
+}
+

@@ -1,0 +1,5 @@
+module models
+ContentDescriptorModel 1.0 ContentDescriptorModel.qml
+StreamModel 1.0 StreamModel.qml
+MonthModel 1.0 MonthModel.qml
+LogModel 1.0 LogModel.qml
