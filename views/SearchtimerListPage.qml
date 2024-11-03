@@ -49,6 +49,7 @@ Page {
             }
             CheckBox {
                 id: checkBoxFavorites
+                font.pointSize: Style.pointSizeHeaderSmall
                 text: "Nur Favoriten"
             }
             ToolButton {
