@@ -474,7 +474,7 @@ Popup {
                 color: Style.colorListIconStandard
             }
             Label {
-                text: "Kein Timer vorhanden (flag: 0)"
+                text: "Kein Timer vorhanden"
             }
         }
         //{1]
@@ -486,7 +486,7 @@ Popup {
                 color: Style.colorListIconActive
             }
             Label {
-                text: "Timer vorhanden (flag: 1)"
+                text: "Timer vorhanden"
             }
         }
         // [2]
@@ -500,11 +500,11 @@ Popup {
             }
             Label {
                 id: refLabel
-                text: "Timer für nächstes Update geplant (flag: 2)"
+                text: "Timer für nächstes Update geplant"
             }
         }
         Label {
-            text: "Die drei Icons zeigen Statusmeldungen (Timer Flag) vom Plugin <i>epgsearch</i>. Ein gefundener Timer existiert auf dem VDR, konnte aber in der eigenen Timerliste nicht gefunden werden. Eine Ursache sind meist Zeitdifferenzen."
+            text: "Die drei Icons zeigen Statusmeldungen vom Plugin <i>epgsearch</i>. Ein gefundener Timer existiert auf dem VDR, konnte aber in der eigenen Timerliste nicht gefunden werden. Eine Ursache sind meist Zeitdifferenzen."
             Layout.minimumWidth: refLabel.width
             Layout.preferredWidth: parent.width
             wrapMode: Text.WordWrap

@@ -158,7 +158,7 @@ Page {
         RowLayout {
             Layout.topMargin: 20
             Label {
-                text: "Ereignis Titel:"
+                text: "Titel:"
                 font.pointSize: Style.pointSizeStandard
                 font.weight: Font.DemiBold
                 Layout.alignment: Qt.AlignTop
@@ -179,7 +179,7 @@ Page {
         RowLayout {
             Layout.topMargin: 20
             Label {
-                text: "Ereignis Untertitel:"
+                text: "Untertitel:"
                 font.pointSize: Style.pointSizeStandard
                 Layout.alignment: Qt.AlignTop
                 font.weight: Font.DemiBold
@@ -223,6 +223,7 @@ Page {
         }
         Button {
             text: "Zurücksetzen"
+            Layout.topMargin: 20
             onClicked: splitFilename(record.name)
         }
 
