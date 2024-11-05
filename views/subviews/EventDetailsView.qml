@@ -77,7 +77,6 @@ Page {
             }
             Label {
                 id: eventDatum
-                // text:  Qt.formatDateTime(event.startDateTime, "dddd, dd.MM.yyyy  hh:mm") + Qt.formatTime(event.endDateTime, " - hh:mm")
                 text: startDate.toLocaleString(locale,"dddd, dd.MM.yyyy  hh:mm") + endDate.toLocaleTimeString(locale," - hh:mm")
                 font.pointSize: Style.pointSizeStandard
             }
