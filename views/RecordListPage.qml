@@ -392,8 +392,6 @@ Page {
                     id: fileLoader
                     active: !model.isDir
                     Layout.fillWidth: true
-                    // Layout.topMargin: 10
-                    // Layout.bottomMargin: 10
                     source: "qrc:/views/subviews/RecordFileComponent.qml"
                 }
             }

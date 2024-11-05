@@ -14,6 +14,8 @@ Page {
 //        for(var p in recordEvent) console.log("P",p,"RecordEvent",recordEvent[p])
 //    }
 
+    property date startDate: recordEvent.startDateTime
+
     header: ToolBar {
         anchors.left: parent.left
         anchors.right: parent.right
@@ -72,7 +74,8 @@ Page {
             }
             Label {
                 id: date
-                text: Qt.formatDateTime(recordEvent.startDateTime, "ddd, dd.MM.yyyy  hh:mm")
+                // text: Qt.formatDateTime(recordEvent.startDateTime, "ddd, dd.MM.yyyy  hh:mm")
+                text: startDate.toLocaleString(locale,"dddd, dd.MM.yyyy  hh:mm")
                 Layout.fillWidth: true
                 font.pointSize: Style.pointSizeStandard
             }
