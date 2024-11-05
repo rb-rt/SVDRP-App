@@ -392,8 +392,8 @@ Page {
                     id: fileLoader
                     active: !model.isDir
                     Layout.fillWidth: true
-                    Layout.topMargin: 10
-                    Layout.bottomMargin: 10
+                    // Layout.topMargin: 10
+                    // Layout.bottomMargin: 10
                     source: "qrc:/views/subviews/RecordFileComponent.qml"
                 }
             }
@@ -405,21 +405,16 @@ Page {
 
         Rectangle {
             width: ListView.view.width
-            height: listRowLayout.height
+            height: recordFileLoader.height
             gradient: Style.gradientList
 
-            RowLayout {
-                id: listRowLayout
+            Loader {
+                id: recordFileLoader
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.rightMargin: Style.pointSizeStandard
+                source: "qrc:/views/subviews/RecordFileComponent.qml"
 
-                Loader {
-                    Layout.fillWidth: true
-                    Layout.topMargin: 10
-                    Layout.bottomMargin: 10
-                    source: "qrc:/views/subviews/RecordFileComponent.qml"
-                }
             }
         }
     }

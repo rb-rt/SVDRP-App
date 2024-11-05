@@ -8,42 +8,28 @@ import "../icons"
 
 RowLayout {
 
+    anchors.left: parent.left
+    anchors.right: parent.right
+
     RecordIcon {
         record: model.record
         showError: checkBoxShowError.checked
     }
 
+    //Eventspalte
     Rectangle {
         Layout.fillWidth: true
         color: "transparent"
-        Layout.preferredHeight: colTitle.height
+        Layout.preferredHeight: columnEvent.height
 
         ColumnLayout {
-            id: colTitle
+            id: columnEvent
             anchors.left: parent.left
             anchors.right: parent.right
-            spacing: 2
 
-            LabelSubtitle {
-                // text: Qt.formatDateTime(model.record.starttime, "ddd, dd.MM.yyyy  hh:mm  ") + "(" + model.duration + ")"
-                text: model.time
-                Layout.preferredWidth: parent.width
-                visible: Style.showChannelTitle
-            }
-            // LabelDescription {
-            //     text: model.lastDir === "" ? "(.)" : "(" + model.lastDir +")"
-            //     Layout.preferredWidth: parent.width
-            //     font.weight: Font.Light
-            //     visible: checkBoxLastDir.checked
-            // }
-            LabelTitle {
-                text: model.display
-                Layout.preferredWidth: parent.width
-            }
-            LabelDescription {
-                text: model.record.name
-                visible: checkBoxFilename.checked
-                Layout.preferredWidth: parent.width
+            EventColumn {
+                Layout.topMargin: 10
+                Layout.bottomMargin: 10
             }
         }
         MouseArea {
@@ -65,14 +51,14 @@ RowLayout {
     MoveIcon {
         id: moveIcon
         visible: !Style.showIndicatorIcon
-        Layout.preferredHeight: colTitle.height
+        Layout.preferredHeight: columnEvent.height
         Layout.preferredWidth: deleteIcon.width
         onIconClicked: pageStack.push(moveRecordView, { record:model.record })
     }
     PlayIcon {
         id: playIcon
         visible: moveIcon.visible
-        Layout.preferredHeight: colTitle.height
+        Layout.preferredHeight: columnEvent.height
         onIconClicked: {
             console.log("Record",model.record)
             playContextMenu.record = model.record
@@ -82,7 +68,7 @@ RowLayout {
     DeleteIcon {
         id: deleteIcon
         visible: moveIcon.visible && !root.selectedRecords
-        Layout.preferredHeight: colTitle.height
+        Layout.preferredHeight: columnEvent.height
         onIconClicked:{
             deleteRecordDlg.id = model.record.id
             deleteRecordDlg.text = model.record.lastName
@@ -92,10 +78,30 @@ RowLayout {
     IndicatorIcon {
         id: indicatorIcon
         visible: Style.showIndicatorIcon
-        Layout.preferredHeight: colTitle.height
+        Layout.preferredHeight: columnEvent.height
         onIconClicked: {
             contextMenu.record = model.record
             contextMenu.popup(indicatorIcon)
+        }
+    }
+
+    component EventColumn: ColumnLayout {
+        spacing: 2
+        width: parent.width
+
+        LabelSubtitle {
+            text: model.time
+            Layout.preferredWidth: parent.width
+            visible: Style.showChannelTitle
+        }
+        LabelTitle {
+            text: model.display
+            Layout.preferredWidth: parent.width
+        }
+        LabelDescription {
+            text: model.record.name
+            visible: checkBoxFilename.checked
+            Layout.preferredWidth: parent.width
         }
     }
 }
