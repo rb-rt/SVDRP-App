@@ -12,8 +12,8 @@ import vdr.vdrinfo 1.0
 import vdr.streamdev 1.0
 import vdr.epgsearch
 import models 1.0
-// import "labels"
-// import "icons"
+import "labels"
+import "icons"
 import "subviews"
 import "transitions"
 
@@ -380,19 +380,28 @@ Page {
 
                 //Verzeichnis
                 Loader {
-                    id: directoryLoader
                     active: model.isDir
                     Layout.fillWidth: true
                     Layout.topMargin: 10
                     Layout.bottomMargin: 10
-                    source: "qrc:/views/subviews/RecordDirectoryComponent.qml"
+                    sourceComponent: Label {
+                        text: display
+                        font.pointSize: Style.pointSizeLarge
+                        elide: Text.ElideRight
+                        verticalAlignment: Qt.AlignVCenter
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                dir = display
+                            }
+                        }
+                    }
                 }
                 //Aufnahme
                 Loader {
-                    id: fileLoader
                     active: !model.isDir
                     Layout.fillWidth: true
-                    source: "qrc:/views/subviews/RecordFileComponent.qml"
+                    sourceComponent: RecordFileComponent {}
                 }
             }
         }
@@ -411,8 +420,7 @@ Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.rightMargin: Style.pointSizeStandard
-                source: "qrc:/views/subviews/RecordFileComponent.qml"
-
+                sourceComponent: RecordFileComponent {}
             }
         }
     }
@@ -631,6 +639,101 @@ Page {
             currentIndex: swipeView.currentIndex
             anchors.left: swipeView.left
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+    }
+
+    component RecordFileComponent: RowLayout {
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        RecordIcon {
+            record: model.record
+            showError: checkBoxShowError.checked
+        }
+
+        //Eventspalte
+        Rectangle {
+            Layout.fillWidth: true
+            color: "transparent"
+            Layout.preferredHeight: columnEvent.height
+            ColumnLayout {
+                id: columnEvent
+                anchors.left: parent.left
+                anchors.right: parent.right
+                EventColumn {
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    recordListModel.getEvent(model.record.id)
+                }
+            }
+        }
+        CheckBox {
+            id: deleteCheckBox
+            opacity: 0.66
+            checked: model.select
+            onToggled: model.select = checked
+            onCheckedChanged: console.log("onCheckedChanged",checked)
+        }
+        MoveIcon {
+            id: moveIcon
+            visible: !Style.showIndicatorIcon
+            Layout.preferredHeight: columnEvent.height
+            Layout.preferredWidth: deleteIcon.width
+            onIconClicked: pageStack.push(moveRecordView, { record:model.record })
+        }
+        PlayIcon {
+            id: playIcon
+            visible: moveIcon.visible
+            Layout.preferredHeight: columnEvent.height
+            onIconClicked: {
+                console.log("Record",model.record)
+                playContextMenu.record = model.record
+                playContextMenu.popup(playIcon)
+            }
+        }
+        DeleteIcon {
+            id: deleteIcon
+            visible: moveIcon.visible && !root.selectedRecords
+            Layout.preferredHeight: columnEvent.height
+            onIconClicked:{
+                deleteRecordDlg.id = model.record.id
+                deleteRecordDlg.text = model.record.lastName
+                deleteRecordDlg.open()
+            }
+        }
+        IndicatorIcon {
+            id: indicatorIcon
+            visible: Style.showIndicatorIcon
+            Layout.preferredHeight: columnEvent.height
+            onIconClicked: {
+                contextMenu.record = model.record
+                contextMenu.popup(indicatorIcon)
+            }
+        }
+    }
+
+    component EventColumn: ColumnLayout {
+        spacing: 2
+        width: parent.width
+
+        LabelSubtitle {
+            text: model.time
+            Layout.preferredWidth: parent.width
+            visible: Style.showChannelTitle
+        }
+        LabelTitle {
+            text: model.display
+            Layout.preferredWidth: parent.width
+        }
+        LabelDescription {
+            text: model.record.name
+            visible: checkBoxFilename.checked
+            Layout.preferredWidth: parent.width
         }
     }
 

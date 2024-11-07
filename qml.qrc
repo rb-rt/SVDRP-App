@@ -36,8 +36,6 @@
         <file>views/+test1/TestPage.qml</file>
         <file>views/+material/TestPage.qml</file>
         <file>LogView.qml</file>
-        <file>views/subviews/RecordDirectoryComponent.qml</file>
-        <file>views/subviews/RecordFileComponent.qml</file>
         <file>views/icons/ExclamationLabel.qml</file>
         <file>views/transitions/ListViewRemoveDisplaced.qml</file>
         <file>views/transitions/ListViewPopulate.qml</file>
