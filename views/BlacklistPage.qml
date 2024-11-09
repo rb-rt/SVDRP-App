@@ -175,7 +175,9 @@ Page {
                         var bl = model.blacklist
                         confirmDeleteMsgBox.blacklist = bl
                         confirmDeleteMsgBox.text = bl.search
-                        confirmDeleteMsgBox.open()
+                        // confirmDeleteMsgBox.open()
+                        testDialog.text = bl.search
+                        testDialog.open()
                     }
                 }
                 IndicatorIcon {
@@ -315,6 +317,19 @@ Page {
             }
         }
     }
+
+    Dialogtests {
+        id: testDialog
+        titleText: "Ausschlußliste löschen?"
+        property string text
+        // standardButtons: Dialog.Yes | Dialog.No
+        contentComponent: Label {
+            text: testDialog.text
+        }
+        onAccepted: console.log("Accepted")
+    }
+
+
 
 
     ErrorDialog {

@@ -11,6 +11,7 @@
         <file alias="TestGridView.qml">dialogs/TestGridView.qml</file>
         <file alias="ColorChooserView.qml">dialogs/ColorChooserView.qml</file>
         <file alias="PlayRecordDlg.qml">dialogs/PlayRecordDlg.qml</file>
+        <file alias="Dialogtests.qml">dialogs/Dialogtests.qml</file>
     </qresource>
     <qresource prefix="/">
         <file>dialogs/subs/DialogCloseIcon.qml</file>

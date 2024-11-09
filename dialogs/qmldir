@@ -10,3 +10,4 @@ DialogInputText 1.0 DialogInputText.qml
 TestGridView 1.0 TestGridView.qml
 ColorChooserView 1.0 ColorChooserView.qml
 PlayRecordDlg 1.0 PlayRecordDlg.qml
+Dialogtests 1.0 Dialogtests.qml

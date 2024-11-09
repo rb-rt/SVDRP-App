@@ -412,7 +412,7 @@ footer: ToolBar {
                 iconCharacter: Style.iconQuestion
                 description: "Legende"
                 fontSolid: false
-                onCommandButtonClicked: legendPopup.open()
+                onCommandButtonClicked: legende.open()//  legendPopup.open()
             }
         }
     }
@@ -450,6 +450,112 @@ ErrorDialog {
     id: errorDialog
     title: "Fehler bei der Abfrage"
 }
+
+Dialogtests {
+    id: legende
+    titleText: "Legende"
+    standardButtons: Dialog.Close
+    contentComponent:
+    ColumnLayout {
+        // width: parent.width //- parent.leftPadding - parent.rightPadding
+        Label {
+            text: "Bedeutung der Icons"
+            font.pointSize: Style.pointSizeLarge
+        }
+        //[0]
+        RowLayout {
+            Layout.topMargin: 10
+            Label {
+                text: Style.iconTimer
+                font.pointSize: Style.pointSizeListIcon
+                font.family: Style.faRegular
+                color: Style.colorListIconStandard
+            }
+            Label {
+                text: "Kein Timer vorhanden"
+            }
+        }
+        //{1]
+        RowLayout {
+            Label {
+                text: Style.iconTimer
+                font.pointSize: Style.pointSizeListIcon
+                font.family: Style.faRegular
+                color: Style.colorListIconActive
+            }
+            Label {
+                text: "Timer vorhanden"
+            }
+        }
+        // [2]
+        RowLayout {
+            id: refRow
+            Label {
+                text: Style.iconTimer
+                font.pointSize: Style.pointSizeListIcon
+                font.family: Style.faRegular
+                color: Style.colorListIconSearch
+            }
+            Label {
+                id: refLabel
+                text: "Timer für nächstes Update geplant"
+            }
+        }
+        Label {
+            text: "Die drei Icons zeigen Statusmeldungen vom Plugin <i>epgsearch</i>. Ein gefundener Timer existiert auf dem VDR, konnte aber in der eigenen Timerliste nicht gefunden werden. Eine Ursache sind meist Zeitdifferenzen."
+            Layout.minimumWidth: refLabel.width
+            Layout.preferredWidth: parent.width
+            wrapMode: Text.WordWrap
+            font.pointSize: Style.pointSizeSmall
+        }
+
+        // [3]
+        RowLayout {
+            Layout.topMargin: 10
+            Label {
+                text: Style.iconTimer
+                font.pointSize: Style.pointSizeListIcon
+                font.family: Style.faSolid
+                color: Style.colorListIconActive
+            }
+            Label {
+                text: "Timer gefunden und aktiv"
+            }
+        }
+        // [4]
+        RowLayout {
+            Label {
+                text: Style.iconTimer
+                font.pointSize: Style.pointSizeListIcon
+                font.family: Style.faSolid
+                color: Style.colorListIconInactive
+            }
+            Label {
+                text: "Timer gefunden, aber inaktiv"
+            }
+        }
+        // [5]
+        RowLayout {
+            Label {
+                text: Style.iconTimer
+                font.pointSize: Style.pointSizeListIcon
+                font.family: Style.faSolid
+                color: Style.colorListIconRecording
+            }
+            Label {
+                text: "Timer zeichnet gerade auf"
+            }
+        }
+        Label {
+            text: "Der Timer wurde in der eigenen Timerliste gefunden und kann hier direkt bearbeitet werden."
+            Layout.minimumWidth: refLabel.width
+            Layout.preferredWidth: parent.width
+            wrapMode: Text.WordWrap
+            font.pointSize: Style.pointSizeSmall
+        }
+    }
+}
+
 Popup {
     id: legendPopup
     modal: true
