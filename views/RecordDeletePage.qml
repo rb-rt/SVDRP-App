@@ -147,7 +147,7 @@ Page {
     }
 
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: deleteCheckedRecordDlg
         titleText: "Aufnahmen löschen"
         text: "Alle ausgewählten Aufnahmen löschen?"

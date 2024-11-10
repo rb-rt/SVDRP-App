@@ -549,23 +549,22 @@ Page {
         }
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: confirmDeleteMsgBox
         property var searchTimer
         titleText: "Suchtimer löschen?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: {
             if (searchTimer) {
                 searchtimerModel.deleteSearchTimer(searchTimer.id)
             }
-            else {
-                console.log("Timer nicht vorhanden")
-            }
         }
     }
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: updateSearchtimersDlg
         titleText: "Suchtimer aktualisieren"
         text: "Suchtimer auf dem VDR aktualisieren?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: epgsearch.svdrpUpdate()
     }
 

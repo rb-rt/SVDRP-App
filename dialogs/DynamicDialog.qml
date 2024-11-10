@@ -5,9 +5,6 @@ import assets
 import "subs"
 
 Dialog {
-    id: dlg
-    modal: true
-    anchors.centerIn: Overlay.overlay
 
     property alias titleText: titleLabel.text
     property alias contentComponent: contentLoader.sourceComponent
@@ -51,12 +48,6 @@ Dialog {
 
     }
 
-    onContentWidthChanged: console.log("contentWidth",contentWidth)
-    onContentHeightChanged: console.log("contentHeight",contentHeight)
-    onHeightChanged: console.log("height",height)
-    onImplicitBackgroundHeightChanged: console.log("onImplicitBackgroundHeightChanged",implicitBackgroundHeight)
-    onImplicitContentHeightChanged: console.log("onImplicitContentHeightChanged",implicitContentHeight)
-
     contentItem: Loader {
         id: contentLoader
     }
@@ -66,12 +57,8 @@ Dialog {
         id: dialogButtonBox
         font.pointSize: Style.pointSizeStandard
         alignment: Qt.AlignHCenter
-
-        onHeightChanged: console.log("Footer onHeightChanged",height)
         topPadding: 6
         bottomPadding: 6
-
-
 
         background: Rectangle {
             color: Qt.darker(Style.colorPrimary, 1.5)

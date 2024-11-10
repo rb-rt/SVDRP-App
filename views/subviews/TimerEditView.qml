@@ -383,9 +383,10 @@ Page {
     }
 
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: confirmDeleteMsgBox
         titleText: "Timer löschen?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: deleteTimer()
     }
 }

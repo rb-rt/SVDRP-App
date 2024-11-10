@@ -514,12 +514,11 @@ ApplicationWindow {
         id: startTimesModel
     }
 
-    MyMessageDialog {
-        id: errorDialog
-        titleText: "TitleText"
-        text: "text"
-        simple: true
-    }
+    // SimpleMessageDialog {
+    //     id: errorDialog
+    //     titleText: "TitleText"
+    //     text: "text"
+    // }
 
     Component.onCompleted: {
         console.log("ApplicationWindow",width,height)

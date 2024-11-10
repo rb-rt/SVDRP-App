@@ -171,7 +171,7 @@ Page {
                     visible: renameIcon.visible
                     Layout.preferredHeight: parent.height
                     onIconClicked: {
-                        confirmDeleteMsgBox.groupName = model.display
+                        confirmDeleteMsgBox.text = model.display + " löschen?"
                         confirmDeleteMsgBox.open()
                     }
                 }
@@ -248,7 +248,7 @@ Page {
             description: qsTr("Löschen")
             onMenuItemClicked: {
                 contextMenu.close()
-                confirmDeleteMsgBox.groupName = lastChannelGroup
+                // confirmDeleteMsgBox.groupName = lastChannelGroup
                 confirmDeleteMsgBox.text = lastChannelGroup + " löschen?"
                 confirmDeleteMsgBox.open()
             }
@@ -275,17 +275,11 @@ Page {
     }
 
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: confirmDeleteMsgBox
-        property string groupName: ""
-        //        icon: StandardIcon.Question
         titleText: "Kanalgruppe löschen"
-        text: groupName + " löschen?"
-        onAccepted: {
-            if (groupName.length > 0) {
-                channelGroupsModel.deleteChannelGroup(groupName)
-            }
-        }
+        standardButtons: Dialog.Yes | Dialog.No
+        onAccepted: channelGroupsModel.deleteChannelGroup(groupName)
     }
 
     DialogInputText {

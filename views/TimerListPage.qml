@@ -466,20 +466,18 @@ Page {
     }
 
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: confirmDeleteMsgBox
         property var timer //Timer()
         titleText: "Timer löschen?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: {
             if (timer) {
                 timerModel.deleteTimer(timer.id)
             }
-            else {
-                console.log("Timer nicht vorhanden")
-            }
         }
     }
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: timeDiffDlg
         property string timerTime
         property string eventTime
@@ -487,6 +485,6 @@ Page {
         text: "Anfangszeiten von Timer und Ereignis stimmen nicht überein.\nTimer:\t" + timerTime
               + "\nEreignis:\t" + eventTime
               + "\nVorlauf:\t" + Style.marginStart + " min."
-        simple: true
+        standardButtons: Dialog.Close
     }
 }

@@ -813,18 +813,19 @@ Page {
         id: errorDialog
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: powerOffDlg
         titleText: "VDR auschalten"
         text: "VDR herunterfahren?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: remote.send("Power")
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: remoteSwitched
         titleText: "Fernbedienung"
         text: "Kontrolle über Fernbedienung ausgeschaltet!"
-        simple: true
+        standardButtons: Dialog.Close
     }
 
     Popup {

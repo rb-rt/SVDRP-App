@@ -175,9 +175,7 @@ Page {
                         var bl = model.blacklist
                         confirmDeleteMsgBox.blacklist = bl
                         confirmDeleteMsgBox.text = bl.search
-                        // confirmDeleteMsgBox.open()
-                        testDialog.text = bl.search
-                        testDialog.open()
+                        confirmDeleteMsgBox.open()
                     }
                 }
                 IndicatorIcon {
@@ -307,30 +305,17 @@ Page {
         }
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: confirmDeleteMsgBox
         titleText: "Ausschlußliste löschen?"
         property var blacklist
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: {
             if (blacklist) {
                 blacklistModel.deleteBlacklist(blacklist.id)
             }
         }
     }
-
-    Dialogtests {
-        id: testDialog
-        titleText: "Ausschlußliste löschen?"
-        property string text
-        // standardButtons: Dialog.Yes | Dialog.No
-        contentComponent: Label {
-            text: testDialog.text
-        }
-        onAccepted: console.log("Accepted")
-    }
-
-
-
 
     ErrorDialog {
         id: errorDialog

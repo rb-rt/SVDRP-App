@@ -720,11 +720,12 @@ Page {
         }
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: colorDlg
         titleText: "Farbauswahl"
         text: "Farbe übernehmen?"
         property color clr
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: settings.colorMainTime = clr
     }
 

@@ -152,11 +152,11 @@ Page {
         id: errorMsgDlg
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: searchTimerCreatedBox
-        simple: true
         titleText: "Suchtimer"
         text: "<i>" + search.search + "</i> erfolgreich angelegt."
+        standardButtons: Dialog.Close
     }
 
 }

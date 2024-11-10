@@ -434,14 +434,17 @@ function query2Timer(query) {
     return t
 }
 
-MyMessageDialog {
+SimpleMessageDialog {
     id: msgDialog
-    simple: true
+    text: "Text?"
+    standardButtons: Dialog.Close
 }
-MyMessageDialog {
+
+SimpleMessageDialog {
     id: confirmDeleteMsgBox
     property int id: -1
     titleText: "Timer löschen?"
+    standardButtons: Dialog.Yes | Dialog.No
     onAccepted: {
         if (id !== -1) timerModel.deleteTimer(id)
     }
@@ -451,17 +454,13 @@ ErrorDialog {
     title: "Fehler bei der Abfrage"
 }
 
-Dialogtests {
+DynamicDialog {
     id: legende
-    titleText: "Legende"
+    titleText: "Bedeutung der Icons"
     standardButtons: Dialog.Close
+    anchors.centerIn: Overlay.overlay
     contentComponent:
     ColumnLayout {
-        // width: parent.width //- parent.leftPadding - parent.rightPadding
-        Label {
-            text: "Bedeutung der Icons"
-            font.pointSize: Style.pointSizeLarge
-        }
         //[0]
         RowLayout {
             Layout.topMargin: 10

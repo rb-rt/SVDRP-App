@@ -529,7 +529,6 @@ Page {
             iconColor: Style.colorListIconEdit
             onMenuItemClicked: {
                 editDlg.text = playContextMenu.record.lastName
-                editDlg.simple = false
                 editDlg.id = playContextMenu.record.id
                 editDlg.open()
             }
@@ -591,7 +590,6 @@ Page {
             iconColor: Style.colorListIconEdit
             onMenuItemClicked: {
                 editDlg.text = contextMenu.record.lastName
-                editDlg.simple = false
                 editDlg.id = contextMenu.record.id
                 editDlg.open()
             }
@@ -900,38 +898,97 @@ Page {
         }
     }
 
-
-
-    PlayRecordDlg {
+    DynamicDialog {
         id: playRecordDlg
-        onAccepted: {
+        property var record
+        property int play: 0 //0 = von begin, 1 = letzter Wiedergabeposition, 2 = Zeitangabe
+        property alias time: timeSpinBox.time
+        titleText: "Wiedergabe auf dem VDR"
+
+        anchors.centerIn: parent
+        modal: true
+        closePolicy: Popup.NoAutoClose
+
+        standardButtons: Dialog.Apply | Dialog.Cancel
+
+        contentItem: ColumnLayout {
+
+            ButtonGroup {
+                id: buttonGroup
+            }
+
+            Label {
+                text: playRecordDlg.record ? playRecordDlg.record.lastName : ""
+                font.pointSize: Style.pointSizeStandard
+                font.bold: true
+            }
+
+            RadioButton {
+                text: "ab Anfang"
+                ButtonGroup.group: buttonGroup
+                checked: playRecordDlg.play === 0
+                onToggled: if (checked) playRecordDlg.play = 0
+                font.pointSize: Style.pointSizeStandard
+            }
+            RadioButton {
+                text: "letzte Wiedergabeposition"
+                ButtonGroup.group: buttonGroup
+                checked: playRecordDlg.play === 1
+                onToggled: if (checked) playRecordDlg.play = 1
+                font.pointSize: Style.pointSizeStandard
+            }
+            RowLayout {
+                RadioButton {
+                    text: "ab "
+                    ButtonGroup.group: buttonGroup
+                    checked: playRecordDlg.play === 2
+                    onToggled: if (checked) playRecordDlg.play = 2
+                    font.pointSize: Style.pointSizeStandard
+                }
+                MyControls.TimeSpinBox {
+                    id: timeSpinBox
+                    time: "00:00"
+                    enabled: playRecordDlg.play === 2
+                }
+                Label {
+                    text: " Format hh:mm"
+                    font.pointSize: Style.pointSizeStandard
+                    enabled: timeSpinBox.enabled
+                }
+            }
+        }
+        onApplied: {
             var t = time + ":00"
             console.log("onAccept",play,time,t)
             recordListModel.playRecord(playRecordDlg.record.id, playRecordDlg.play,t)
+            close()
         }
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: deleteRecordDlg
         titleText: "Aufnahme löschen?"
         property int id
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: recordListModel.deleteRecord(id)
     }
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: updrDlg
         titleText: "Aufnahmen akutalisieren"
         text: "Aufnahmen auf dem VDR neu einlesen?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: recordListModel.updateRecords()
     }
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: playDlg
+        standardButtons: Dialog.Close
         titleText: "Aufnahme abspielen"
-        simple: true
     }
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: editDlg
         titleText: "Aufnahme auf dem VDR schneiden?"
         property int id
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: recordListModel.editRecord(id)
     }
 

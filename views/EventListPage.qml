@@ -850,9 +850,9 @@ Page {
         return s
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: errorDialog
-        simple: true
+
     }
 
     MyControls.BusyIndicatorPopup {

@@ -453,13 +453,11 @@ Item {
         }
     }
 
-
-
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: messageBox
         titleText: "Ungültige Suchabfrage"
         text: "Titel, Untertitel oder Beschreibung sind nicht gesetzt.\nBitte mindestens eine Kategorie auswählen."
-        simple: true
+        standardButtons: Dialog.Close
     }
 
 }

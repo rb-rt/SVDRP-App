@@ -4,14 +4,13 @@
         <file alias="TimeTumblerDlg.qml">dialogs/TimeTumblerDlg.qml</file>
         <file alias="DateTimeTumblerDlg.qml">dialogs/DateTimeTumblerDlg.qml</file>
         <file alias="ErrorDialog.qml">dialogs/ErrorDialog.qml</file>
-        <file alias="MyMessageDialog.qml">dialogs/MyMessageDialog.qml</file>
+        <file alias="SimpleMessageDialog.qml">dialogs/SimpleMessageDialog.qml</file>
         <file alias="CalendarDlg.qml">dialogs/CalendarDlg.qml</file>
         <file alias="DateTumblerDlg.qml">dialogs/DateTumblerDlg.qml</file>
         <file alias="DialogInputText.qml">dialogs/DialogInputText.qml</file>
         <file alias="TestGridView.qml">dialogs/TestGridView.qml</file>
         <file alias="ColorChooserView.qml">dialogs/ColorChooserView.qml</file>
-        <file alias="PlayRecordDlg.qml">dialogs/PlayRecordDlg.qml</file>
-        <file alias="Dialogtests.qml">dialogs/Dialogtests.qml</file>
+        <file alias="DynamicDialog.qml">dialogs/DynamicDialog.qml</file>
     </qresource>
     <qresource prefix="/">
         <file>dialogs/subs/DialogCloseIcon.qml</file>

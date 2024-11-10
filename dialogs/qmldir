@@ -5,9 +5,9 @@ DateTimeTumblerDlg 1.0 DateTimeTumblerDlg.qml
 DateTumblerDlg 1.0 DateTumblerDlg.qml
 CalendarDlg 1.0 CalendarDlg.qml
 ErrorDialog 1.0 ErrorDialog.qml
-MyMessageDialog 1.0 MyMessageDialog.qml
+DynamicDialog 1.0 DynamicDialog.qml
+SimpleMessageDialog 1.0 SimpleMessageDialog.qml
 DialogInputText 1.0 DialogInputText.qml
 TestGridView 1.0 TestGridView.qml
 ColorChooserView 1.0 ColorChooserView.qml
 PlayRecordDlg 1.0 PlayRecordDlg.qml
-Dialogtests 1.0 Dialogtests.qml

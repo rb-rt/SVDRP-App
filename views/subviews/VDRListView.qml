@@ -172,15 +172,17 @@ Item {
     }
 
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: messageDialog
+        standardButtons: Dialog.Close
         onAccepted: close()
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: deleteMsgBox
         property int index: -1
         titleText: "VDR löschen"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: {
             vdrModel.remove(index)
         }

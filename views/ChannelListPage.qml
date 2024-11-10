@@ -620,10 +620,11 @@ Page {
         }
     }
 
-    MyMessageDialog {
+    SimpleMessageDialog {
         id: deleteDialog
         titleText: qsTr("Kanal löschen?")
         property var channelIds: []
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: {
             channelModel.deleteChannels(channelIds)
             channelSelectProxyModel.channels = []
