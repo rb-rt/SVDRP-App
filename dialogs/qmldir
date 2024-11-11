@@ -2,7 +2,6 @@ module dialogs
 
 TimeTumblerDlg 1.0 TimeTumblerDlg.qml
 DateTimeTumblerDlg 1.0 DateTimeTumblerDlg.qml
-DateTumblerDlg 1.0 DateTumblerDlg.qml
 CalendarDlg 1.0 CalendarDlg.qml
 ErrorDialog 1.0 ErrorDialog.qml
 DynamicDialog 1.0 DynamicDialog.qml
