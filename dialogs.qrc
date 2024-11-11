@@ -6,7 +6,6 @@
         <file alias="ErrorDialog.qml">dialogs/ErrorDialog.qml</file>
         <file alias="SimpleMessageDialog.qml">dialogs/SimpleMessageDialog.qml</file>
         <file alias="CalendarDlg.qml">dialogs/CalendarDlg.qml</file>
-        <file alias="DateTumblerDlg.qml">dialogs/DateTumblerDlg.qml</file>
         <file alias="DialogInputText.qml">dialogs/DialogInputText.qml</file>
         <file alias="TestGridView.qml">dialogs/TestGridView.qml</file>
         <file alias="ColorChooserView.qml">dialogs/ColorChooserView.qml</file>
@@ -14,12 +13,9 @@
     </qresource>
     <qresource prefix="/">
         <file>dialogs/subs/DialogCloseIcon.qml</file>
-        <file>dialogs/subs/DialogHeaderToolBar.qml</file>
-        <file>dialogs/subs/DialogFooterToolBar.qml</file>
         <file>dialogs/subs/HueSlider.qml</file>
         <file>dialogs/subs/TimeTumbler.qml</file>
         <file>dialogs/subs/DateTimeTumbler.qml</file>
-        <file>dialogs/subs/DateTumbler.qml</file>
         <file>dialogs/subs/DayTumbler.qml</file>
         <file>dialogs/subs/HourTumbler.qml</file>
         <file>dialogs/subs/MinuteTumbler.qml</file>

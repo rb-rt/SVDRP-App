@@ -376,7 +376,7 @@ Page {
 
     CalendarDlg {
         id: dateDlg
-        onAccepted: {
+        onApplied: {
             selectedDate = datum
             timer.day = datum
         }

@@ -2,13 +2,15 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import assets
+import "subs"
 
 Dialog {
-    id: dialog
+    id: root
 
     property alias titleText: titleLabel.text
     property alias headerIcon: labelIcon.text
     property bool fontSolid: true
+    property bool showCloseIcon: false
     property alias contentComponent: contentLoader.sourceComponent //verhindert binding loop für implicitHeight
 
     header: ToolBar {
@@ -37,7 +39,7 @@ Dialog {
                 rightPadding: 10
                 verticalAlignment: Qt.AlignVCenter
                 visible: text.length > 0
-                font.family: dialog.fontSolid ? Style.faSolid : Style.faRegular
+                font.family: root.fontSolid ? Style.faSolid : Style.faRegular
                 font.pointSize: Style.pointSizeLarge
             }
 
@@ -51,6 +53,12 @@ Dialog {
                 Layout.topMargin: 10
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
+            }
+            DialogCloseIcon {
+                Layout.fillHeight: true
+                Layout.bottomMargin: 1
+                Layout.preferredWidth: parent.height
+                visible: root.showCloseIcon
             }
         }
     }

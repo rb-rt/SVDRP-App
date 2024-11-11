@@ -2,11 +2,10 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
-import components 1.0
 import assets 1.0
 import "subs"
 
-Dialog {
+DynamicDialog {
 
     property string time //20:15
 
@@ -14,10 +13,10 @@ Dialog {
     modal: true
     closePolicy: Popup.NoAutoClose
 
-    header: DialogHeaderToolBar {
-        icon: Style.iconClock
-        text: time
-    }
+    titleText: time
+    headerIcon: Style.iconClock
+    fontSolid: false
+    showCloseIcon: true
 
     function formatTime(h,m) {
         if (m < 10) m = "0" + m
@@ -33,11 +32,9 @@ Dialog {
             }
     }
 
-    footer: DialogFooterToolBar {
-        onOkClicked: {
-            time = formatTime(timeTumbler.hours, timeTumbler.minutes)
-            accept()
-        }
+    standardButtons: Dialog.Ok
+    onAccepted: {
+        time = formatTime(timeTumbler.hours, timeTumbler.minutes)
     }
 
     onTimeChanged: {

@@ -75,14 +75,14 @@ GroupBox {
         id: calFrom
         parent: Overlay.overlay
         datum: fromDate
-        onAccepted: from = datum.getTime() / 1000
+        onApplied: from = datum.getTime() / 1000
     }
 
     CalendarDlg {
         id: calTo
         parent: Overlay.overlay
         datum: tilDate
-        onAccepted: til = datum.getTime() / 1000
+        onApplied: til = datum.getTime() / 1000
     }
 
 }

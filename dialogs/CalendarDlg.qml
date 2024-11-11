@@ -4,30 +4,26 @@ import QtQuick.Layouts 1.15
 
 import assets 1.0
 import controls 1.0 as MyControls
-import "subs"
+// import "subs"
 
-Dialog {
+DynamicDialog {
 
     id: root
 
     property alias datum: cal.selectedDate
-   // onDatumChanged: console.log("CalendarDlg onDatumChanged",datum)
 
     anchors.centerIn: parent
     modal: true
     closePolicy: Popup.NoAutoClose
 
-    header: DialogHeaderToolBar {
-        icon: Style.iconCalender
-        text: cal.selectedDate.toLocaleDateString(locale,"ddd, dd.MM.yyyy")
-    }
+    titleText: cal.selectedDate.toLocaleDateString(locale,"ddd, dd.MM.yyyy")
+    headerIcon: Style.iconCalender
+    fontSolid: false
 
     contentItem: MyControls.Kalender {
         id: cal
     }
 
-    footer: DialogFooterToolBar {
-        onOkClicked: accept()
-    }
-
+    standardButtons: Dialog.Apply | Dialog.Cancel
+    onApplied: close()
 }
