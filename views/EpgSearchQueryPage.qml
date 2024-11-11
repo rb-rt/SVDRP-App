@@ -457,8 +457,11 @@ ErrorDialog {
 DynamicDialog {
     id: legende
     titleText: "Bedeutung der Icons"
+    headerIcon: Style.iconQuestion
+    fontSolid: false
     standardButtons: Dialog.Close
     anchors.centerIn: Overlay.overlay
+
     contentComponent:
     ColumnLayout {
         //[0]
@@ -553,8 +556,10 @@ DynamicDialog {
             font.pointSize: Style.pointSizeSmall
         }
     }
-}
 
+
+}
+/*
 Popup {
     id: legendPopup
     modal: true
@@ -663,7 +668,7 @@ Popup {
     }
 
 }
-
+*/
 BusyIndicatorPopup {
     id: busyIndicator
 }

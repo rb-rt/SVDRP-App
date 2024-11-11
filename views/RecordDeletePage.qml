@@ -151,6 +151,7 @@ Page {
         id: deleteCheckedRecordDlg
         titleText: "Aufnahmen löschen"
         text: "Alle ausgewählten Aufnahmen löschen?"
+        standardButtons: Dialog.Yes | Dialog.No
         onAccepted: deleteRecords()
     }
 }

@@ -2,12 +2,14 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import assets
-import "subs"
 
 Dialog {
+    id: dialog
 
     property alias titleText: titleLabel.text
-    property alias contentComponent: contentLoader.sourceComponent
+    property alias headerIcon: labelIcon.text
+    property bool fontSolid: true
+    property alias contentComponent: contentLoader.sourceComponent //verhindert binding loop für implicitHeight
 
     header: ToolBar {
 
@@ -27,34 +29,37 @@ Dialog {
             anchors.fill: parent
 
             Label {
+                id: labelIcon
+                Layout.fillHeight: true
+                Layout.preferredWidth: parent.height
+                Layout.bottomMargin: 1
+                leftPadding: 10
+                rightPadding: 10
+                verticalAlignment: Qt.AlignVCenter
+                visible: text.length > 0
+                font.family: dialog.fontSolid ? Style.faSolid : Style.faRegular
+                font.pointSize: Style.pointSizeLarge
+            }
+
+            Label {
                 id: titleLabel
                 text: "Header fehlt"
                 font.pointSize: Style.pointSizeStandard
-                leftPadding: 10
+                leftPadding: labelIcon.visible ? 0 : 10
                 rightPadding: 10
                 elide: Text.ElideRight
                 Layout.topMargin: 10
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
             }
-
-            DialogCloseIcon {
-                Layout.fillHeight: true
-                Layout.preferredWidth: parent.height
-                Layout.bottomMargin: 1
-                visible: dialogButtonBox.count <= 1
-            }
         }
-
     }
 
     contentItem: Loader {
         id: contentLoader
     }
 
-
     footer: DialogButtonBox {
-        id: dialogButtonBox
         font.pointSize: Style.pointSizeStandard
         alignment: Qt.AlignHCenter
         topPadding: 6

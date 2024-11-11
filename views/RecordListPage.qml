@@ -904,6 +904,7 @@ Page {
         property int play: 0 //0 = von begin, 1 = letzter Wiedergabeposition, 2 = Zeitangabe
         property alias time: timeSpinBox.time
         titleText: "Wiedergabe auf dem VDR"
+        headerIcon: Style.iconPlay
 
         anchors.centerIn: parent
         modal: true

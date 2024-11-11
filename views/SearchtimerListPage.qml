@@ -76,7 +76,6 @@ Page {
                 }
                 onClicked: {
                     updateSearchtimersDlg.text = "Suchtimer auf dem VDR aktualisieren?"
-                    updateSearchtimersDlg.simple = false
                     updateSearchtimersDlg.open()
                 }
             }
@@ -114,9 +113,7 @@ Page {
     Connections {
         target: epgsearch
         function onUpdateFinished() {
-            updateSearchtimersDlg.text = "Befehl erfolgreich abgsetzt.\n Eine weitere Rückmeldung erfolgt nicht."
-            updateSearchtimersDlg.simple = true
-            updateSearchtimersDlg.open()
+            updateCompleteDlg.open()
         }
     }
 
@@ -566,6 +563,12 @@ Page {
         text: "Suchtimer auf dem VDR aktualisieren?"
         standardButtons: Dialog.Yes | Dialog.No
         onAccepted: epgsearch.svdrpUpdate()
+    }
+    SimpleMessageDialog {
+        id: updateCompleteDlg
+        titleText: "Suchtimer aktualisieren"
+        text: "Befehl erfolgreich abgsetzt.\n Eine weitere Rückmeldung erfolgt nicht."
+        standardButtons: Dialog.Close
     }
 
     ErrorDialog {
