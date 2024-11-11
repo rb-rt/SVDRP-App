@@ -13,6 +13,8 @@ Dialog {
     property bool showCloseIcon: false
     property alias contentComponent: contentLoader.sourceComponent //verhindert binding loop für implicitHeight
 
+    closePolicy: Popup.NoAutoClose
+
     header: ToolBar {
 
         background: Rectangle {

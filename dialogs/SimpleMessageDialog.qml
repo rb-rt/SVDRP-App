@@ -10,6 +10,7 @@ Dialog {
 
     modal: true
     anchors.centerIn: Overlay.overlay
+    closePolicy: Popup.NoAutoClose
 
     header: ToolBar {
 

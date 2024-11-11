@@ -3,23 +3,20 @@ import QtQuick.Layouts
 import QtQuick.Controls
 
 import assets
-// import "../icons"
+import dialogs
 
-Popup {
-        id: helpPopup
+DynamicDialog {
         modal: true
-        parent: Overlay.overlay
-        anchors.centerIn: parent
-        width: Math.max(parent.width / 2, refLabel.width + leftPadding + rightPadding)
+        anchors.centerIn: Overlay.overlay
+        width: parent.width / 2
 
+        titleText: "Hinweis zu den Auswahlmöglichkeiten"
+
+        standardButtons: Dialog.Close
+
+        contentComponent:
         ColumnLayout {
             width: parent.width //- parent.leftPadding - parent.rightPadding
-            Label {
-                id: refLabel
-                text: "Hinweis zu den Auswahlmöglichkeiten:"
-                font.pointSize: Style.pointSizeLarge
-                // Layout.fillWidth: true
-            }
             Label {
                 text: "Alle / Keine / Umkehren"
                 font.pointSize: Style.pointSizeStandard
