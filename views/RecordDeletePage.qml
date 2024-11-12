@@ -142,11 +142,6 @@ Page {
         }
     }
 
-    ErrorDialog {
-        id: errorDialog
-    }
-
-
     SimpleMessageDialog {
         id: deleteCheckedRecordDlg
         titleText: "Aufnahmen löschen"

@@ -3,7 +3,6 @@
         <file alias="qmldir">dialogs/qmldir</file>
         <file alias="TimeTumblerDlg.qml">dialogs/TimeTumblerDlg.qml</file>
         <file alias="DateTimeTumblerDlg.qml">dialogs/DateTimeTumblerDlg.qml</file>
-        <file alias="ErrorDialog.qml">dialogs/ErrorDialog.qml</file>
         <file alias="SimpleMessageDialog.qml">dialogs/SimpleMessageDialog.qml</file>
         <file alias="CalendarDlg.qml">dialogs/CalendarDlg.qml</file>
         <file alias="DialogInputText.qml">dialogs/DialogInputText.qml</file>

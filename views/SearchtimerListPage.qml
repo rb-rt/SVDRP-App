@@ -571,10 +571,6 @@ Page {
         standardButtons: Dialog.Close
     }
 
-    ErrorDialog {
-        id: errorMsgDlg
-        title: "Fehler bei der Abfrage"
-    }
     BusyIndicatorPopup {
         id: busyIndicator
     }

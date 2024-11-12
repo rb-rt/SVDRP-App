@@ -148,8 +148,10 @@ Page {
         }
     }
 
-    ErrorDialog {
+    SimpleMessageDialog {
         id: errorMsgDlg
+        titleText: "Fehler aufgetreten"
+        standardButtons: Dialog.Close
     }
 
     SimpleMessageDialog {

@@ -108,7 +108,7 @@ Page {
         target: channelModel
         function onError(error) {
             channelSelectProxyModel.channels = []
-            errorDlg.errorText = "Fehler beim Löschen der Kanäle: " + error + "\nKanalliste sollte unbedingt aktualisiert werden."
+            errorDlg.text = "Fehler beim Löschen der Kanäle: " + error + "\nKanalliste sollte unbedingt aktualisiert werden."
             errorDlg.open()
         }
     }
@@ -631,8 +631,10 @@ Page {
         }
     }
 
-    ErrorDialog {
+    SimpleMessageDialog {
         id: errorDlg
+        titleText: qsTr("Fehler aufgetreten")
+        standardButtons: Dialog.Close
     }
 
     Dialog {

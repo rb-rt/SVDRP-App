@@ -114,8 +114,9 @@ Page {
         onError: {
             console.log("EpgSearchPage.qml EpgSearchQueryModel onError")
             busyIndicator.close()
-            errorDialog.errorText = error
-            errorDialog.open()
+            msgDialog.titleText = "Fehler bei der Abfrage"
+            msgDialog.text = error
+            msgDialog.open()
         }
         onSearchtimerCreated: {
             console.log("EpgSearchPage.qml onSearchtimerCreated")
@@ -449,10 +450,6 @@ SimpleMessageDialog {
         if (id !== -1) timerModel.deleteTimer(id)
     }
 }
-ErrorDialog {
-    id: errorDialog
-    title: "Fehler bei der Abfrage"
-}
 
 DynamicDialog {
     id: legende
@@ -559,116 +556,7 @@ DynamicDialog {
 
 
 }
-/*
-Popup {
-    id: legendPopup
-    modal: true
-    parent: Overlay.overlay
-    anchors.centerIn: parent
-    width: Math.max(parent.width / 2, refRow.width + leftPadding + rightPadding)
-    // closePolicy: Popup.CloseOnEscape || Popup.CloseOnPressOutside || Popup.CloseOnPressOutsideParent
 
-    ColumnLayout {
-        width: parent.width //- parent.leftPadding - parent.rightPadding
-        Label {
-            text: "Bedeutung der Icons"
-            font.pointSize: Style.pointSizeLarge
-        }
-        //[0]
-        RowLayout {
-            Layout.topMargin: 10
-            Label {
-                text: Style.iconTimer
-                font.pointSize: Style.pointSizeListIcon
-                font.family: Style.faRegular
-                color: Style.colorListIconStandard
-            }
-            Label {
-                text: "Kein Timer vorhanden"
-            }
-        }
-        //{1]
-        RowLayout {
-            Label {
-                text: Style.iconTimer
-                font.pointSize: Style.pointSizeListIcon
-                font.family: Style.faRegular
-                color: Style.colorListIconActive
-            }
-            Label {
-                text: "Timer vorhanden"
-            }
-        }
-        // [2]
-        RowLayout {
-            id: refRow
-            Label {
-                text: Style.iconTimer
-                font.pointSize: Style.pointSizeListIcon
-                font.family: Style.faRegular
-                color: Style.colorListIconSearch
-            }
-            Label {
-                id: refLabel
-                text: "Timer für nächstes Update geplant"
-            }
-        }
-        Label {
-            text: "Die drei Icons zeigen Statusmeldungen vom Plugin <i>epgsearch</i>. Ein gefundener Timer existiert auf dem VDR, konnte aber in der eigenen Timerliste nicht gefunden werden. Eine Ursache sind meist Zeitdifferenzen."
-            Layout.minimumWidth: refLabel.width
-            Layout.preferredWidth: parent.width
-            wrapMode: Text.WordWrap
-            font.pointSize: Style.pointSizeSmall
-        }
-
-        // [3]
-        RowLayout {
-            Layout.topMargin: 10
-            Label {
-                text: Style.iconTimer
-                font.pointSize: Style.pointSizeListIcon
-                font.family: Style.faSolid
-                color: Style.colorListIconActive
-            }
-            Label {
-                text: "Timer gefunden und aktiv"
-            }
-        }
-        // [4]
-        RowLayout {
-            Label {
-                text: Style.iconTimer
-                font.pointSize: Style.pointSizeListIcon
-                font.family: Style.faSolid
-                color: Style.colorListIconInactive
-            }
-            Label {
-                text: "Timer gefunden, aber inaktiv"
-            }
-        }
-        // [5]
-        RowLayout {
-            Label {
-                text: Style.iconTimer
-                font.pointSize: Style.pointSizeListIcon
-                font.family: Style.faSolid
-                color: Style.colorListIconRecording
-            }
-            Label {
-                text: "Timer zeichnet gerade auf"
-            }
-        }
-        Label {
-            text: "Der Timer wurde in der eigenen Timerliste gefunden und kann hier direkt bearbeitet werden."
-            Layout.minimumWidth: refLabel.width
-            Layout.preferredWidth: parent.width
-            wrapMode: Text.WordWrap
-            font.pointSize: Style.pointSizeSmall
-        }
-    }
-
-}
-*/
 BusyIndicatorPopup {
     id: busyIndicator
 }

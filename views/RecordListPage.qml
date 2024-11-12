@@ -230,8 +230,8 @@ Page {
         onError: {
             busyIndicator.close()
             streamingAvailable = false
-            errorDialog.title = "Fehler Streamdev"
-            errorDialog.errorText = error
+            errorDialog.titleText = "Fehler Streamdev"
+            errorDialog.text = error
             errorDialog.open()
         }
     }
@@ -242,6 +242,7 @@ Page {
         url: root.url
         onError: function(error) {
             busyIndicator.close()
+            errorDialog.titleText = "RecordListModel Fehler"
             errorDialog.errorText = error
             errorDialog.open()
         }
@@ -879,10 +880,6 @@ Page {
         }
     }
 
-    ErrorDialog {
-        id: errorDialog
-    }
-
     MoveRecordView {
         id: moveRecordView
         directories: epgsearch.directories
@@ -992,6 +989,13 @@ Page {
         standardButtons: Dialog.Yes | Dialog.No
         onAccepted: recordListModel.editRecord(id)
     }
+
+    SimpleMessageDialog {
+        id: errorDialog
+        standardButtons: Dialog.Close
+    }
+
+
 
     MyControls.BusyIndicatorPopup {
         id: busyIndicator

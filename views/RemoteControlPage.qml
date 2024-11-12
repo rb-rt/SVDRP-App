@@ -14,7 +14,7 @@ Page {
         id: remote
         url: channelModel.url
         onSvdrpError: {
-            errorDialog.errorText = error
+            errorDialog.text = error
             errorDialog.open()
         }
         Component.onCompleted: {
@@ -809,8 +809,10 @@ Page {
         }
     }
 
-    ErrorDialog {
+    SimpleMessageDialog {
         id: errorDialog
+        titleText: "Fehler aufgetreten"
+        standardButtons: Dialog.Close
     }
 
     SimpleMessageDialog {

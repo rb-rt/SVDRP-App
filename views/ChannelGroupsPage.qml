@@ -58,7 +58,7 @@ Page {
         target: epgsearch
         function onSvdrpError(error) {
             console.log("ChannelGroupsPage.qml onError",error)
-            httpErrorMsg.errorText = error
+            httpErrorMsg.text = error
             httpErrorMsg.open()
         }        
     }
@@ -303,8 +303,10 @@ Page {
         }
     }
 
-    ErrorDialog {
+    SimpleMessageDialog {
         id: httpErrorMsg
+        titleText: qsTr("Fehler aufgetreten")
+        standardButtons: Dialog.Close
     }
 
 }

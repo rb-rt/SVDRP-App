@@ -64,11 +64,6 @@ Page {
         id: blacklistModel
         channelModel: root.channelModel
         epgsearch: root.epgsearch
-        //        onError: {
-        //            errorDialog.text = error
-        //            errorDialog.open()
-        //        }
-        //        onEpgsearchChanged: console.log("BlacklistPage.qml onEpgsearchChanged")
         Component.onCompleted: {
             console.log("BlacklistPage.qml BlacklistModel onCompleted")
             getBlacklists()
@@ -88,7 +83,6 @@ Page {
         delegate: Rectangle {
             width: ListView.view.width
             height: col.height //childrenRect.height
-            //            height: 40
             gradient: Style.gradientList
 
             RowLayout {
@@ -316,10 +310,4 @@ Page {
             }
         }
     }
-
-    ErrorDialog {
-        id: errorDialog
-        title: "Fehler bei der Abfrage"
-    }
-
 }
