@@ -6,9 +6,10 @@
 #include <QQmlFileSelector>
 #include <QQmlFileSelector>
 #include <QFontDatabase>
+#include <QTranslator>
+#include <QLibraryInfo>
 
 #include <models/channelgroupsmodel.h>
-
 #include "models/channelmodel.h"
 #include "models/eventmodel.h"
 #include "models/timermodel.h"
@@ -42,6 +43,47 @@ int main(int argc, char *argv[])
 #endif
 
     QGuiApplication app(argc, argv);
+
+    // QLocale l = QLocale(QLocale(QLocale::French, QLocale::France));
+    QLocale l = QLocale(QLocale(QLocale::German, QLocale::Germany));
+    // QLocale::setDefault(QLocale(QLocale::German, QLocale::Germany));
+    QLocale::setDefault(l);
+    qDebug() << "QLocale.uiLanguages()" << l.uiLanguages();
+    qDebug() << "language" << l.language();
+    qDebug() << "l.System" << l.system();
+    qDebug() << "QLocal::System" << QLocale::system();
+    qDebug() << "QLocal::System" << QLocale::system();
+    qDebug() << "QLocal" << QLocale();
+
+    // QTranslator qtTranslator;
+    // bool ok = qtTranslator.load(QLocale::system(), QStringLiteral("qtbase_en"));
+    // QString tpath = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+    // qDebug() << "TranslationsPath" << tpath;
+
+    // bool ok;
+    // ok = qtTranslator.load("qtbase_en", tpath );
+    // ok = qtTranslator.load(l, "qtbase", "_", tpath);
+    // if (qtTranslator.load(QLocale::system(), u"qtbase"_s, u"_"_s, QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
+    // qDebug() << "Translator load" << ok;
+    // qDebug() << "Translator filepath" << qtTranslator.filePath();
+    // qDebug() << "Translator isEmpty" << qtTranslator.isEmpty();
+    // qDebug() << "Translator language" << qtTranslator.language();
+
+
+    // bool ok = qtTranslator.load(QLocale::system(), "qtbase_en", tpath);
+
+    // app.installTranslator(&qtTranslator);
+
+    // qDebug() << "" << QLibraryInfo::path(QLibraryInfo::ArchDataPath);
+    // qDebug() << "" << QLibraryInfo::path(QLibraryInfo::DataPath);
+    // qDebug() << "" << QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+
+
+
+    // QLocale::setDefault(QLocale(QLocale::French));
+    // QLocale::setDefault(QLocale(QLocale::Hebrew, QLocale::Israel));//aus Doku
+    // QLocale::setDefault(QLocale(QLocale::French, QLocale::France));
+
 
     //    QQuickStyle::setStyle("Universal");
        // QQuickStyle::setStyle("Material");
