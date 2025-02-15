@@ -8,4 +8,4 @@ Eine Android-App für den Video Disk Recorder (VDR). Sie ermöglicht unter ander
 + **Fernbedienung:** Simuliert eine Fernbedienung.
 + **Kanalliste:** Zeigt alle gefundenen Kanäle mit einer einfachen Bearbeitung wie Verschieben oder löschen.
 
-Eine ausführlichere Beschreibung zu allen ausgeführten Programmpunkten gibt es im [Wiki](./wiki).
+Eine ausführlichere Beschreibung zu allen ausgeführten Programmpunkten gibt es im [Wiki](../../wiki).
